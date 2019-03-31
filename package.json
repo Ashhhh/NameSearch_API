@@ -1,0 +1,51 @@
+{
+  "name": "superdupernamesearch_api",
+  "version": "0.0.1",
+  "description": "Search API",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node ./src/app",
+    "dev": "nodemon --watch --legacy-watch src/app.js",
+    "test:unit": "cross-env NODE_ENV=test mocha ./test --recursive",
+    "test:lint": "eslint src/**/*",
+    "import-names": "node ./scripts/import"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crowdcomms/SuperDuperNameSearch_API.git"
+  },
+  "engines": {
+    "node": "^11.6.0"
+  },
+  "author": "Ash Prosser",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/crowdcomms/SuperDuperNameSearch_API/issues"
+  },
+  "homepage": "https://github.com/crowdcomms/SuperDuperNameSearch_API#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.4",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.4.20",
+    "passport": "^0.4.0",
+    "passport-jwt-cookiecombo": "^1.0.5",
+    "passport-local": "^1.0.0",
+    "swagger-ui-express": "^4.0.2",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "cross-env": "^5.2.0",
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "faker": "^4.1.0",
+    "mocha": "^6.0.2",
+    "nodemon": "^1.18.10",
+    "sinon": "^7.3.1",
+    "sinon-chai": "^3.3.0"
+  }
+}
