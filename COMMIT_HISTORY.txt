@@ -1,0 +1,48 @@
+
+commit 8904e43f6e0830bab2d61b0b17e3637068518cad (HEAD -> master, origin/master)
+Author: Ash Prosser <aprosser@crowdcomms.co.uk>
+Date:   Mon Apr 1 00:44:24 2019 +0100
+
+    feat(swagger): swagdoc added
+
+commit 5089fd18df4401c041211c842a90b0fa86195d81
+Author: Ash Prosser <aprosser@crowdcomms.co.uk>
+Date:   Mon Apr 1 00:16:19 2019 +0100
+
+    task(name): implement name search (finally)
+
+commit 1258f79b9717af078075b8f27d1daa706156d625
+Author: Ash Prosser <aprosser@crowdcomms.co.uk>
+Date:   Fri Mar 29 23:58:58 2019 +0000
+
+    tests(controllers): get controller coverage to 100%
+
+commit eac54af4cd5c37642d3eee99f45c85b4514c00ba
+Author: Ash Prosser <aprosser@crowdcomms.co.uk>
+Date:   Fri Mar 29 23:51:25 2019 +0000
+
+    feat(auth): auth support
+
+commit 1a23221009eb3e9d092cb1715dfab84c8818390b
+Author: Ash Prosser <aprosser@crowdcomms.co.uk>
+Date:   Fri Mar 29 20:45:44 2019 +0000
+
+    fix(db): promptly realise i already did the connection last night
+
+commit 9068fdf138b85ccf1bb488fb1df60c17e181d4be
+Author: Ash Prosser <aprosser@crowdcomms.co.uk>
+Date:   Fri Mar 29 20:43:10 2019 +0000
+
+    feat(db): mongoose connection
+
+commit c6ba89a32d35bd93965b95a42e74a15ce6d08c66
+Author: Ash Prosser <ashprosser@live.co.uk>
+Date:   Fri Mar 29 20:39:41 2019 +0000
+
+    feat(db): begin database
+
+commit bb6758b428bb8c4c87584cbf5ba370996e2d8e35
+Author: Ash Prosser <aprosser@crowdcomms.co.uk>
+Date:   Fri Mar 29 00:00:01 2019 +0000
+
+    chore(docker): just making some notes
