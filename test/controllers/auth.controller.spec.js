@@ -1,6 +1,9 @@
 const sinon = require('sinon');
 const chai = require('chai');
+const sinonChai = require('sinon-chai');
 const faker = require('faker');
+
+chai.use(sinonChai);
 
 const config = require('../../src/utils/config');
 const authController = require('../../src/controllers/auth.controller');
@@ -30,7 +33,7 @@ describe('controllers/auth.controller', () => {
         json: sinon.spy()
       };
 
-      const expectedJwt = authService.signUserJwt(mockUser);
+      const expectedJwt = authService.createJwtFromUser(mockUser);
 
       await authController.createJwt(req, res);
 
@@ -73,6 +76,8 @@ describe('controllers/auth.controller', () => {
         password: authService.hashPassword(faker.internet.password())
       };
 
+      const next = sinon.stub();
+
       sinon.stub(registrationService, 'createUser').resolves(mockUser);
       sinon.stub(userService, 'getUserByUsername').resolves(undefined);
 
@@ -87,11 +92,12 @@ describe('controllers/auth.controller', () => {
       res.status = sinon.stub().returns(res);
       res.json = sinon.stub().returns(res);
 
-      await authController.register(req, res);
+      await authController.register(req, res, next);
 
       chai.expect(res.status.called).to.eq(false);
       chai.expect(res.json.called).to.eq(false);
       chai.expect(req.user).to.eq(mockUser);
+      chai.expect(next).to.have.been.calledWith();
     });
   });
 });

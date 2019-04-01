@@ -1,6 +1,6 @@
 const { MissingEnvironmentVariableError } = require('../errors');
 
-const requiredEnvironmentVariables = ['JWT_KEY', 'MONGO_HOST', 'MONGO_PORT', 'MONGO_DBNAME'];
+const requiredEnvironmentVariables = ['JWT_KEY', 'COOKIE_KEY', 'MONGO_HOST', 'MONGO_PORT', 'MONGO_DBNAME'];
 const missingEnvironmentVariables = requiredEnvironmentVariables.filter(key => !process.env[key]);
 
 if (process.env.NODE_ENV !== 'test' && missingEnvironmentVariables.length !== 0) {
@@ -11,6 +11,7 @@ if (process.env.NODE_ENV !== 'test' && missingEnvironmentVariables.length !== 0)
 const PORT = process.env.PORT || 3000;
 
 // Authentication
+const COOKIE_KEY = process.env.COOKIE_KEY;
 const JWT_KEY = process.env.JWT_KEY;
 const AUTH_SALT_ROUNDS = 10;
 
@@ -27,6 +28,7 @@ const PAGINATION_DEFAULT_LIMIT = 10;
 module.exports = {
   PORT,
 
+  COOKIE_KEY,
   JWT_KEY,
   AUTH_SALT_ROUNDS,
 

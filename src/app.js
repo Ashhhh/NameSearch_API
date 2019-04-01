@@ -1,17 +1,22 @@
 require('./db/connection');
 const express = require('express');
-const config = require('./utils/config');
-const routes = require('./routes');
+const { PORT, COOKIE_KEY } = require('./utils/config');
+const { publicRouter, secureRouter } = require('./routes');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 const { logger } = require('./utils/logger');
 
 const app = express();
 
-app.use(routes);
+app.use(bodyParser.json());
+app.use(cookieParser(COOKIE_KEY));
+app.use(publicRouter);
+app.use(secureRouter);
 
-app.listen(config.PORT, () => {
+app.listen(PORT, () => {
   logger.log({
     level: 'info',
-    message: `Started on port: ${config.PORT}`
+    message: `Started on port: ${PORT}`
   });
 });
 

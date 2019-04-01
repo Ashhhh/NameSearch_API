@@ -9,15 +9,6 @@ function getUserByUsername(username) {
   return User.findOne({ username }).exec();
 }
 
-/**
- * Finds a single user in the database via their ObjectId
- * @param {String} id ObjectId of user
- */
-function getUserById(id) {
-  return User.findById(id).exec();
-}
-
 module.exports = {
-  getUserByUsername,
-  getUserById
+  getUserByUsername
 };

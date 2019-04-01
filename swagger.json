@@ -10,6 +10,13 @@
     "http",
     "https"
   ],
+  "securityDefinitions": {
+    "Bearer": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
   "paths": {
     "/auth/login": {
       "post": {
@@ -20,16 +27,16 @@
         "produces": [
           "application/json"
         ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/definitions/LoginRequest"
-              }
+        "parameters": [
+          {
+            "in": "body",
+            "name": "User credentials",
+            "description": "Username and password for the user you wish to log in to",
+            "schema": {
+              "$ref": "#/definitions/LoginRequest"
             }
           }
-        },
+        ],
         "responses": {
           "200": {
             "description": "success"
@@ -49,16 +56,19 @@
         "produces": [
           "application/json"
         ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/definitions/LoginRequest"
-              }
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "User credentials",
+            "description": "Username and password for the newly created user",
+            "schema": {
+              "$ref": "#/definitions/LoginRequest"
             }
           }
-        },
+        ],
         "responses": {
           "200": {
             "description": "success"
@@ -69,10 +79,33 @@
         }
       }
     },
+    "/auth/logout": {
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "Log out",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "success"
+          }
+        }
+      }
+    },
     "/names": {
       "get": {
         "tags": [
           "names"
+        ],
+        "security": [
+          {
+            "Bearer": [
+
+            ]
+          }
         ],
         "summary": "Get Names",
         "produces": [
