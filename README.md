@@ -15,6 +15,12 @@ docker
 docker-compose
 ```
 
+For active development
+
+```
+npm+node
+```
+
 ### Installing
 
 Build the containers
