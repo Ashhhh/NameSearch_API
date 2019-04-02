@@ -68,7 +68,8 @@ There is also a WallabyJS config.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+'Do what you want'
+   - Me
 
 ## Acknowledgments
 
