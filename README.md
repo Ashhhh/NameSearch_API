@@ -73,5 +73,5 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ## Acknowledgments
 
 * Using volumes instead of local paths because Windows+MongoDB+Local paths apparently do not mix.
-* Using Cookies + JWTs because HttpOnly cookies are the securist of secure
+* I did attempt to store JWTs in cookies...then follishly realised it wouldn't work because of cross-origin restrictions. It's there for kicks anyway.
 * I accidentally started this as a local repo at the start. You can find the commit history for the local repo in COMMIT_HISTORY.txt!
