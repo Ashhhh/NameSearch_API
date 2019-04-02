@@ -23,6 +23,7 @@
         "tags": [
           "auth"
         ],
+        "operationId": "login",
         "summary": "Log in",
         "produces": [
           "application/json"
@@ -39,11 +40,11 @@
         ],
         "responses": {
           "200": {
-            "description": "success"
+            "description": "success",
+            "schema": {
+              "$ref": "#/definitions/Jwt"
+            }
           }
-        },
-        "schema": {
-          "$ref": "#/definitions/Jwt"
         }
       }
     },
@@ -52,6 +53,7 @@
         "tags": [
           "auth"
         ],
+        "operationId": "register",
         "summary": "Register",
         "produces": [
           "application/json"
@@ -71,11 +73,11 @@
         ],
         "responses": {
           "200": {
-            "description": "success"
+            "description": "success",
+            "schema": {
+              "$ref": "#/definitions/Jwt"
+            }
           }
-        },
-        "schema": {
-          "$ref": "#/definitions/Jwt"
         }
       }
     },
@@ -84,6 +86,7 @@
         "tags": [
           "auth"
         ],
+        "operationId": "logout",
         "summary": "Log out",
         "produces": [
           "application/json"
@@ -100,6 +103,7 @@
         "tags": [
           "names"
         ],
+        "operationId": "getNames",
         "security": [
           {
             "Bearer": [
@@ -123,13 +127,13 @@
         ],
         "responses": {
           "200": {
-            "description": "success"
-          }
-        },
-        "schema": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Name"
+            "description": "success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Name"
+              }
+            }
           }
         }
       }

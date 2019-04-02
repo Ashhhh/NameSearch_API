@@ -2,7 +2,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { AUTH_SALT_ROUNDS, JWT_KEY } = require('../utils/config');
 const { User } = require('../db/models/user.model');
-const { userService } = require('./user.service');
+const userService = require('./user.service');
 
 /**
  * Encrypts a password suitable for database entry
@@ -51,9 +51,9 @@ async function login(username, password) {
     return false;
   }
 
-  const comparison = await userService.comparePassword(password, user.password);
+  const comparison = await comparePassword(password, user.password);
 
-  return comparison;
+  return comparison ? user : false;
 }
 
 module.exports = {

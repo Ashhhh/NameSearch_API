@@ -10,12 +10,13 @@ const registrationService = require('../services/registration.service');
  */
 async function createJwt(req, res) {
   const jwt = authService.createJwtFromUser(req.user);
+  const production = process.env.NODE_ENV === 'production';
 
   res.cookie('jwt', jwt, {
     httpOnly: true,
-    sameSite: true,
+    sameSite: production,
     signed: true,
-    secure: true
+    secure: production
   });
 
   return res.json({ jwt });
