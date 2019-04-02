@@ -76,3 +76,5 @@ There is also a WallabyJS config.
 * Using volumes instead of local paths because Windows+MongoDB+Local paths apparently do not mix.
 * I did attempt to store JWTs in cookies...then follishly realised it wouldn't work because of cross-origin restrictions. It's there for kicks anyway.
 * I accidentally started this as a local repo at the start. You can find the commit history for the local repo in COMMIT_HISTORY.txt!
+* It definitely needs validation. I would have used express-validator
+* Finally, the Mongo query should really be cached in Redis. You could likely tell it to cache based on the search term used. It would be fairly easy to detect which key in redis to invalidate.
